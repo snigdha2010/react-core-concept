@@ -4,30 +4,39 @@ import './App.css';
 
 function App() {
 
-  
+  const products = [
+    { name:"Iphone", price:'$399'},
+    { name:'PDF Reader', price: '$40'},
+    { name:'Illustratoe', price:'$50'}
+  ]
+
   return (
     <div className="App">
       <header className="App-header">
-        
-        <Person name='Snigdha' major='Math'></Person>
-        <Person name='Nazmul' major='EE'></Person>
-
-
-
-
+        <Product product={products[0]}></Product>
+        <Product></Product>
       </header>
     </div>
   );
 }
 
-function Person(props){
-   
-   return(<div style={{border:'2px red solid', width:'400px',margin:'10px',borderRadius:'8px'}}>
+function Product(props){
 
-<h2>Student Name:{props.name}</h2>
-<h3>Student Major:{props.major}</h3>
+  const productStyle = {
+  color : 'white',
+  backgroundColor : 'gray', 
+  border: '2px red solid',
+  width : '400px',
+  margin : '10px'
 
-   </div>)
 }
+  console.log(props);
+  return (
+    <div style= {productStyle}>
+      <h2>{props.product.product.name}</h2>
+      <h3> Product Price</h3>
+    </div>
+  )
 
+}
 export default App;
